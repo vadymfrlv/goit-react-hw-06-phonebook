@@ -58,9 +58,9 @@ export default function App({ items }) {
       </Section>
 
       <Section title="Contacts">
-        {items > 0 ? (
+        {items.length > 0 ? (
           <>
-            <div className={styles.filter}>All contacts: {items}</div>
+            <div className={styles.filter}>All contacts: {items.length}</div>
             <Filter />
             <ContactList />
           </>
