@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from 'react';
-import { nanoid } from 'nanoid';
 import Section from './Section';
 import ContactForm from './ContactForm';
 import ContactList from './ContactList';
@@ -7,7 +5,7 @@ import Filter from './Filter';
 import Notification from './Notification';
 import styles from './Filter/Filter.module.css';
 
-export default function App() {
+export default function App({ contacts }) {
   // const [contacts, setContacts] = useState(JSON.parse(localStorage.getItem('contacts')) ?? []);
   // const [filter, setFilter] = useState('');
 
@@ -55,15 +53,15 @@ export default function App() {
       }}
     >
       <Section title="Phonebook">
-        <ContactForm onSubmit={addContact} />
+        <ContactForm />
       </Section>
 
       <Section title="Contacts">
         {contacts.length > 0 ? (
           <>
             <div className={styles.filter}>All contacts: {contacts.length}</div>
-            <Filter value={filter} onChange={changeFilter} />
-            <ContactList contacts={visibleContacts} onDeleteContact={deleteContact} />
+            <Filter />
+            <ContactList />
           </>
         ) : (
           <Notification message="There are no contacts yet. Let's create a new one!" />
