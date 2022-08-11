@@ -1,7 +1,11 @@
 import { combineReducers, createReducer } from '@reduxjs/toolkit';
 import actions from './contacts-actions';
 
-const contacts = createReducer([{ id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' }], {
+// const itemsState = JSON.parse(localStorage.getItem('contacts')) ?? [
+//   { id: 'id-1', name: 'Vadym Frolov', number: '093-11-22' },
+// ];
+
+const items = createReducer([], {
   [actions.addContact]: (state, { payload }) =>
     state.find(({ name }) => name === payload.name)
       ? alert(`${payload.name} is already in contacts`)
@@ -14,4 +18,4 @@ const filter = createReducer('', {
   [actions.changeFilter]: (_, { payload }) => payload,
 });
 
-export default combineReducers({ contacts, filter });
+export default combineReducers({ items, filter });

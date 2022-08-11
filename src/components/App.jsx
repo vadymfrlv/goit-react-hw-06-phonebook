@@ -5,7 +5,7 @@ import Filter from './Filter';
 import Notification from './Notification';
 import styles from './Filter/Filter.module.css';
 
-export default function App({ contacts }) {
+export default function App({ items }) {
   // const [contacts, setContacts] = useState(JSON.parse(localStorage.getItem('contacts')) ?? []);
   // const [filter, setFilter] = useState('');
 
@@ -45,6 +45,7 @@ export default function App({ contacts }) {
   // };
 
   // const visibleContacts = getVisibleContacts();
+
   return (
     <div
       style={{
@@ -57,9 +58,9 @@ export default function App({ contacts }) {
       </Section>
 
       <Section title="Contacts">
-        {contacts.length > 0 ? (
+        {items > 0 ? (
           <>
-            <div className={styles.filter}>All contacts: {contacts.length}</div>
+            <div className={styles.filter}>All contacts: {items}</div>
             <Filter />
             <ContactList />
           </>
@@ -70,3 +71,16 @@ export default function App({ contacts }) {
     </div>
   );
 }
+
+//   return (
+//     <>
+//       <Section title={'Phonebook'}>
+//         <ContactForm />
+//       </Section>
+//       <Section title={'Contacts'}>
+//         <Filter />
+//         <ContactList />
+//       </Section>
+//     </>
+//   );
+// }
