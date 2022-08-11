@@ -8,45 +8,45 @@ import Notification from './Notification';
 import styles from './Filter/Filter.module.css';
 
 export default function App() {
-  const [contacts, setContacts] = useState(JSON.parse(localStorage.getItem('contacts')) ?? []);
-  const [filter, setFilter] = useState('');
+  // const [contacts, setContacts] = useState(JSON.parse(localStorage.getItem('contacts')) ?? []);
+  // const [filter, setFilter] = useState('');
 
-  useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
+  // useEffect(() => {
+  //   localStorage.setItem('contacts', JSON.stringify(contacts));
+  // }, [contacts]);
 
-  const addContact = ({ name, number }) => {
-    const normalizedName = name.toLowerCase();
-    const checkContact = contacts.some(contact => contact.name.toLowerCase() === normalizedName);
+  // const addContact = ({ name, number }) => {
+  //   const normalizedName = name.toLowerCase();
+  //   const checkContact = contacts.some(contact => contact.name.toLowerCase() === normalizedName);
 
-    if (checkContact) {
-      alert(`${name} is already in contacts`);
-      return;
-    }
+  //   if (checkContact) {
+  //     alert(`${name} is already in contacts`);
+  //     return;
+  //   }
 
-    const contact = {
-      id: nanoid(),
-      name: name,
-      number: number,
-    };
+  //   const contact = {
+  //     id: nanoid(),
+  //     name: name,
+  //     number: number,
+  //   };
 
-    setContacts(prevContacts => [...prevContacts, contact]);
-  };
+  //   setContacts(prevContacts => [...prevContacts, contact]);
+  // };
 
-  const getVisibleContacts = () => {
-    const normalizedFilter = filter.toLowerCase();
-    return contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter));
-  };
+  // const getVisibleContacts = () => {
+  //   const normalizedFilter = filter.toLowerCase();
+  //   return contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter));
+  // };
 
-  const changeFilter = evt => {
-    setFilter(evt.target.value.trim());
-  };
+  // const changeFilter = evt => {
+  //   setFilter(evt.target.value.trim());
+  // };
 
-  const deleteContact = contactId => {
-    setContacts(prevContacts => prevContacts.filter(contact => contact.id !== contactId));
-  };
+  // const deleteContact = contactId => {
+  //   setContacts(prevContacts => prevContacts.filter(contact => contact.id !== contactId));
+  // };
 
-  const visibleContacts = getVisibleContacts();
+  // const visibleContacts = getVisibleContacts();
   return (
     <div
       style={{
